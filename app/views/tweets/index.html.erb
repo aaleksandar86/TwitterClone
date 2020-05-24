@@ -3,7 +3,9 @@
   <ul>
     <% @tweets.each do |t| %>
       <li>
-        <%= link_to t.body, "/tweets/#{t.id}" %>
+        <%= link_to t.body, show_tweet_path(t) %>
       </li>
     <% end %>
   </ul>
+
+  <%= link_to "New Tweet", new_tweet_path %>
