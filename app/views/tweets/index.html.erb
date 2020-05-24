@@ -1,2 +1,9 @@
-<h1>Tweets#index</h1>
-<p>Find me in app/views/tweets/index.html.erb</p>
+<h1>Tweets timeline</h1>
+
+  <ul>
+    <% @tweets.each do |t| %>
+      <li>
+        <%= link_to t.body, "/tweets/#{t.id}" %>
+      </li>
+    <% end %>
+  </ul>
