@@ -1,4 +1,4 @@
-<h1>Write tweet</h1>
+<h1>Edit tweet</h1>
 
 <% if @tweet.errors.any? %>
     <div id="error_explanation">
@@ -14,13 +14,13 @@
   </div>
 <% end %>
 
-<%= form_with model @tweet, url: "/tweets", local: true do |form| %>
+<%= form_with model: @tweet, local: true do |form| %>
   <p>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
   </p>
-
   <p>
-    <%= form.submit "Save Tweet" %>
+  <%= form.submit 'Update Tweet'%>
   </p>
 <% end %>
+<%= link_to 'Back', tweets_path %>
