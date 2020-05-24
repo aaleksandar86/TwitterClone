@@ -1,26 +1,4 @@
 <h1>Edit tweet</h1>
 
-<% if @tweet.errors.any? %>
-    <div id="error_explanation">
-    <h2>
-    <%= pluralize(@tweet.errors.count, "error") %> prohibited
-    this tweet from being saved:
-    </h2>
-      <ul>
-        <% @tweet.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-  </div>
-<% end %>
-
-<%= form_with model: @tweet, local: true do |form| %>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_field :body %>
-  </p>
-  <p>
-  <%= form.submit 'Update Tweet'%>
-  </p>
-<% end %>
+<%= render 'form', tweet: @tweet, submit: 'Update Tweet' %>
 <%= link_to 'Back', tweets_path %>
