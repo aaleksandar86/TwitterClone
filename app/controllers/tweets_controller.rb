@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Tweet(tweet_params)
+    @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
       redirect_to @tweet
