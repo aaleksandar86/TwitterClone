@@ -1,4 +1,5 @@
-<h1>Tweets timeline</h1>
+<h1>Tweets timeline</h1><br>
+<%= link_to "New Tweet", new_tweet_path %><br>
 <% @tweets.each do |tweet| %>
 <article class="media">
   <figure class="media-left">
@@ -37,4 +38,3 @@
         <%= link_to "Delete", tweet_path(tweet), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } %>
  <% end %>
 
-  <%= link_to "New Tweet", new_tweet_path %>
