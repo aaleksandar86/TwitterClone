@@ -13,10 +13,10 @@
 <% end %>
 
 <%= form_with model: tweet, local: true do |form| %>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
+    <div class="control">
+      <%= form.text_area :body, class:'is-focused textarea',
+      placeholder: 'Focused textarea' %>
+    </div>
   <p>
     <%= form.submit submit%>
   </p>
