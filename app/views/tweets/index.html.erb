@@ -1,5 +1,15 @@
-<h1 class="is-size-3" >Tweets timeline</h1><br>
-<%= link_to "New Tweet", new_tweet_path, class: 'button is-info' %><br><br>
+<div class="field is-grouped">
+  <div class="control">
+    <div class=" is-info">
+      <i class="fab fa-twitter fa-3x"></i>
+    </div>
+  </div>
+  <div class="control">
+    <h1 class="is-size-3">Tweets Timeline</h1><br>
+  </div>
+</div>
+<br>
+<%= link_to "New Tweet", new_tweet_path, class: 'button is-info is-size-4' %><br><br>
 <% @tweets.each do |tweet| %>
 <article class="media">
   <figure class="media-left">
@@ -32,17 +42,20 @@
     </nav>
   </div>
   <div class="media-right">
-   <%= link_to tweet_path(tweet), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
+   <%= link_to tweet_path(tweet), class: "button is-info" do%>
+      <span class="icon is-small"><i class="fa fa-expand"></i></span>
+    <% end %>
+    <%= link_to edit_tweet_path(tweet), class: "button is-info" do%>
+      <span class="icon is-small"><i class="fas fa-edit"></i></span>
+    <% end %>
+    <%= link_to tweet_path(tweet), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" }, class: "button is-danger" do %>
       <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
     <% end %>
-   <%= link_to edit_tweet_path(tweet) do%>
-        <span class="icon is-small"><i class="fas fa-edit"></i></span>
-      <% end %>
   </div>
 </article>
  <% end %>
  <footer class="footer">
-  <div class="content has-text-centered">
+  <div class="has-text-centered">
     <p>
       <strong>Twitter exercise</strong> by Alex. The source code is licensed
       <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
