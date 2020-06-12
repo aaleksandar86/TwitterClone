@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(created_at: :desc)
   end
 
   def show
@@ -15,7 +15,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      redirect_to @tweet
+      redirect_to root_path
     else
       render :new
     end

@@ -9,19 +9,19 @@
   </figure>
   <div class="media-content">
     <div class="content">
+    <%= link_to tweet_path(tweet) do %>
       <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+        <strong>John Smith</strong> <small>@johnsmith</small> <small><%= time_ago_in_words(tweet.created_at) %></small>
         <br>
         <%= tweet.body %>
       </p>
+      <% end %>
     </div>
     <nav class="level is-mobile">
       <div class="level-left">
-        <a class="level-item">
-          <%= link_to tweet_path(tweet), class: 'level-item' %>
+        <%= link_to tweet_path(tweet), class: 'level-item' do%>
           <span class="icon is-small"><i class="fas fa-reply"></i></span>
-
-        </a>
+        <% end %>
         <a class="level-item">
           <span class="icon is-small"><i class="fas fa-retweet"></i></span>
         </a>
