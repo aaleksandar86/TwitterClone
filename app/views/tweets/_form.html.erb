@@ -4,20 +4,27 @@
       <%= pluralize(tweet.errors.count, "error") %> prohibited
       this tweet from being saved:
     </h2>
-  <ul>
-    <% tweet.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+    <ul>
+      <% tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   </div>
 <% end %>
 
 <%= form_with model: tweet, local: true do |form| %>
+  <div class="field">
     <div class="control">
       <%= form.text_area :body, class:'is-focused textarea',
-      placeholder: 'Focused textarea' %>
+        placeholder: 'Tweet content, max 140 characters.', autofocus: true %>
     </div>
-  <p>
-    <%= form.submit submit%>
-  </p>
+  </div>
+   <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit submit, class: 'button is-info'%>
+    </div>
+    <div class="control">
+      <%= link_to 'Cancel', tweets_path, class: 'button is-light' %>
+    </div>
+  </div>
 <% end %>
