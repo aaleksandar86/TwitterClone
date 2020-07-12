@@ -1,3 +1,5 @@
-<h1 class="is-size-3">Write a new tweet</h1>
-
-<%= render 'form', tweet: @tweet, submit: 'Publish Tweet' %>
+<%= render 'form',
+tweet: @tweet,
+submit: 'Publish Tweet',
+cancel_path: root_path,
+heading: 'Compose a new tweet' %>

@@ -1,0 +1,17 @@
+<% @tweet.comments.each do |comment| %>
+  <article class="media">
+      <div class="media-content">
+        <div class="content">
+            <strong><%= comment.commenter %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small><br>
+            <%= comment.body %>
+        </div>
+      </div>
+    </article>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+  </article>
+<% end %>
