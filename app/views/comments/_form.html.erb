@@ -1,5 +1,16 @@
+<% if comment.errors.any? %>
+  <div id="error_explanation" class="notification is-warning">
+    <p><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</p><br>
+      <p>
+        <% comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </p>
+  </div>
+<% end %>
+
 <div class="media-content">
-  <%= form_with model: [@tweet, @comment], local: true do |form| %>
+  <%= form_with model: [tweet, comment], local: true do |form| %>
     <div class="field">
     <p class="control">
       <%= form.text_field :commenter, class: "input", placeholder: 'Commenter' %>

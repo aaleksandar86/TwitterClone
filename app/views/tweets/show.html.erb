@@ -36,7 +36,7 @@
 <article class="media">
     <div class="media-content">
       <div class="content">
-        <p><%= @tweet.comments.count %> Comments</p>
+        <p><%= pluralize(@tweet.comments.count, 'Comment') %></p>
       </div>
     </div>
       <%= link_to "New Comment", new_tweet_comment_path(@tweet), class: 'button is-info' %>
