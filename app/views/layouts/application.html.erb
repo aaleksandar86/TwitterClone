@@ -10,30 +10,9 @@
   </head>
 
   <body>
-  <nav class="navbar is-info">
-    <div class="navbar-brand">
-        <% link_to root_path, class: "navbar-item" do %>
-          <h1 class="title is-5">TwiiterClone</h1>
-        <% end %>
-          <div class="navbar-burger burger" data-target="navbarExample">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-      </div>
-      <div id="navbarExample" class="navbar-menu">
-          <div class="navbar-end">
-            <div class="field is-grouped">
-            <p class="control">
-
-            </p>
-            </div>
-          </div>
-      </div>
-  </nav>
-
-  <div class="column is-6 is-offset-3">
+   <%= render 'shared/nav_bar' %>
+    <div class="column is-6 is-offset-3">
+    <%= render 'shared/flash' %>
     <%= yield %>
     </div>
   </body>
