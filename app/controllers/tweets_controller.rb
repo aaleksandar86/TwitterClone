@@ -9,11 +9,13 @@ class TweetsController < ApplicationController
   end
 
   def new
+    session_notice(:danger, 'You have to be logged in!') unless logged_in?
     @tweet = Tweet.new
   end
 
   def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user = current_user
 
     if @tweet.save
       redirect_to root_path
@@ -23,7 +25,11 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    session_notice(:danger, 'You have to be logged in!') unless logged_in?
     @tweet = Tweet.find(params[:id])
+    if logged_in?
+      session_notice(:danger, 'Wrong User') unless equal_with_current_user?(@tweet.user)
+    end
   end
 
   def update
@@ -37,10 +43,14 @@ class TweetsController < ApplicationController
   end
 
   def destroy
+    session_notice(:danger, 'You have to be logged in!') unless logged_in?
     tweet = Tweet.find(params[:id])
-    tweet.destroy
-
-    redirect_to tweets_path
+    if equal_with_current_user?(tweet.user)
+      tweet.destroy
+      redirect_to tweets_path
+    else
+      session_notice(:danger, 'Wrong User')
+    end
   end
 
   private

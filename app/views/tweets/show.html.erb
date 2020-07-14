@@ -39,7 +39,9 @@
         <p><%= pluralize(@tweet.comments.count, 'Comment') %></p>
       </div>
     </div>
+    <% if local_assigns[:show] %>
       <%= link_to "New Comment", new_tweet_comment_path(@tweet), class: 'button is-info' %>
+    <% end %>
   </article>
 
 <% @tweet.comments.each do |comment| %>
