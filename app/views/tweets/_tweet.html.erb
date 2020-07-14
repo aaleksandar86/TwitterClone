@@ -8,7 +8,7 @@
     <div class="content">
     <%= link_to tweet_path(tweet) do %>
       <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> <small><%= time_ago_in_words(tweet.created_at) %></small>
+        <strong><%= tweet.user.name %></strong> <small>@<%= tweet.user.name.downcase %></small> <small><%= time_ago_in_words(tweet.created_at) %> ago</small>
         <br>
         <%= tweet.body %>
       </p>
